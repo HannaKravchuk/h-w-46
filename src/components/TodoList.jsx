@@ -1,12 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { addTodo, toggleTodo, deleteTodo } from '../redux/slices/todoSlice';
+import { fetchTodos } from '../redux/asyncActions/fetchTodos';
 import TodoItem from './TodoItem';
 
 const TodoList = () => {
-  const todos = useSelector((state) => state.todo.todos);
+  const { todos, loading, error } = useSelector((state) => state.todo);
   const dispatch = useDispatch();
   const [newTodo, setNewTodo] = useState('');
+
+  useEffect(() => {
+    dispatch(fetchTodos());
+  }, [dispatch]);
 
   const handleAddTodo = () => {
     if (newTodo.trim()) {
@@ -18,7 +23,9 @@ const TodoList = () => {
   return (
     <div>
       <h2>What i need to do?</h2>
-      <div style={{ marginBottom: '1rem' }}>
+      {loading && <p>Loading...</p>}
+      {error && <p style={{ color: 'red' }}>Error: {error}</p>}
+      <div style={{ marginBottom: '2rem' }}>
         <input
           type="text"
           value={newTodo}
