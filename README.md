@@ -1,12 +1,19 @@
-# React + Vite
+# 📝 To-Do List App with Redux Toolkit
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Этот проект — простой ToDo List, в нём реализована загрузка задач с помощью асинхронного действия (createAsyncThunk), чтобы продемонстрировать работу Redux Toolkit с асинхронными запросами.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Функциональность
 
-## Expanding the ESLint configuration
+- Добавление задач
+- Переключение статуса задачи (завершено/не завершено)
+- Удаление задач
+- Имитация асинхронной загрузки списка задач
+- Обработка состояний: loading, success, error
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Установка и запуск
+```bash
+npm install
+npm run dev
+```
